@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HotelReservation</string>
+    <string name="total_due_textview_text">Total due: %s</string>
+    <string name="main_activity_button_text">+</string>
+    <string name="reservation_details_textview_text">Reservation details</string>
+    <string name="checkout_hint_text">Checkout</string>
+    <string name="checking_hint_text">Checking</string>
+    <string name="reservation_name_hint_text">Reservation name</string>
+</resources>

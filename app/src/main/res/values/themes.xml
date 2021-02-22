@@ -1,0 +1,42 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.HotelReservation" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/Rich_Black2</item>
+        <item name="colorPrimaryVariant">@color/Rich_Black1</item>
+        <item name="colorOnPrimary">@color/Battleship_Grey</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/Battleship_Grey</item>
+        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+
+
+    <style name="MainButtonStyle">
+        <item name="android:background">@drawable/button_bg</item>
+<!--        <item name="android:fontFamily">@font/unicaone_font</item>-->
+        <item name="android:textColor">@color/Rich_Black1</item>
+        <item name="android:src">@drawable/ic_add</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textAlignment">center</item>
+
+    </style>
+
+    <style name="MainTextViewStyle">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MainEditTextStyle">
+
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="hintTextColor">@color/white</item>
+    </style>
+</resources>
