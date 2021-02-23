@@ -17,17 +17,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        style="@style/MainTextViewStyle"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reservation_recycleview"
 
-        android:id="@+id/reservation_listview"
+        style="@style/MainTextViewStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_button" />
+        app:layout_constraintTop_toBottomOf="@+id/add_button"/>
 
     <TextView
         style="@style/MainTextViewStyle"
@@ -37,7 +37,7 @@
         android:layout_margin="16dp"
         android:layout_marginBottom="61dp"
         android:text="@string/total_due_textview_text"
-        app:layout_constraintBottom_toTopOf="@+id/reservation_listview"
+        app:layout_constraintBottom_toTopOf="@+id/reservation_recycleview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

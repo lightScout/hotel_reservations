@@ -62,6 +62,7 @@ public class AddReservation extends AppCompatActivity {
                                 checking_edittext.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                             }
                         }, year, month, day);
+//               picker.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 picker.show();
             }
         });

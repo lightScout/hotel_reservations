@@ -73,10 +73,10 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<String> getAllReservations(){
+    public ArrayList<Reservation> getAllReservations(){
         String getAll = "SELECT * FROM "+TABLE_NAME;
         Cursor allReservations =  getReadableDatabase().rawQuery(getAll, null);
-        ArrayList<String> reservationsArrayList = new ArrayList<>();
+        ArrayList<Reservation> reservationsArrayList = new ArrayList<>();
 
         while(allReservations.moveToNext()){
             int reservationID = allReservations.getInt(allReservations.getColumnIndex(RESERVATION_ID_COLUMN));
@@ -86,7 +86,7 @@ public class DBHelper extends SQLiteOpenHelper {
             Double price =  allReservations.getDouble(allReservations.getColumnIndex(RESERVATION_PRICE_COLUMN));
 
             Reservation reservation = new Reservation(reservationID,name, checking, checkout, price);
-            reservationsArrayList.add(reservation.toString());
+            reservationsArrayList.add(reservation);
 
         }
         allReservations.close();
