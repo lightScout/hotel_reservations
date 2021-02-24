@@ -1,33 +1,40 @@
 package com.britishBroadcast.hotelreservation.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import com.britishBroadcast.hotelreservation.AddReservation;
 import com.britishBroadcast.hotelreservation.R;
 import com.britishBroadcast.hotelreservation.model.DBHelper;
-import com.britishBroadcast.hotelreservation.model.data.MyAdapter;
+import com.britishBroadcast.hotelreservation.view.adapter.ReservationBaseAdapter;
 import com.britishBroadcast.hotelreservation.model.data.Reservation;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.britishBroadcast.hotelreservation.model.DBHelper.DATABASE_NAME;
+
 public class MainActivity extends AppCompatActivity {
 
     private DBHelper dbHelper;
 
+
+    // List with hotel image to be used by reservation base adapter
+//    private List<Reservation> reservationWithImageList = new ArrayList<>(Arrays.asList(
+//            new Reservation(0, "Alex Marcus", "01/02/2022", "01/03/2022", 20.0,"https://www.gannett-cdn.com/presto/2020/05/18/USAT/9ae54ef7-217d-4877-a614-4760325f9a9b-Park-Hyatt-New-York-Manhattan-Sky-Suite-Master-Bedroom.jpg?crop=1199,675,x0,y59&width=660&height=372&format=pjpg&auto=webp")
+//    ));
+
     @BindView(R.id.total_due_textview)
     public TextView total_due_textview;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +56,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadReservations() {
-        final RecyclerView recyclerView =  findViewById(R.id.reservation_recycleview);
 
-        final ArrayList<Reservation> allReservationsList = dbHelper.getAllReservations();
-//        System.out.println("list size" +allReservationsList.get(0));
+        // Recycler View binding
+//        final RecyclerView recyclerView =  findViewById(R.id.reservation_recycleview);
+//        final ArrayList<Reservation> allReservationsList = dbHelper.getAllReservations();
+//        ReservationRecyclerViewAdapter reservationRecyclerViewAdapter = new ReservationRecyclerViewAdapter(this, allReservationsList);
+//        recyclerView.setAdapter(reservationRecyclerViewAdapter);
+//        recyclerView.setLayoutManager( new LinearLayoutManager(this));
 
-        MyAdapter myAdapter = new MyAdapter(this, allReservationsList);
-        recyclerView.setAdapter(myAdapter);
-        recyclerView.setLayoutManager( new LinearLayoutManager(this));
+
+        // List View binding
+        final ListView mainListView = findViewById(R.id.reservation_listview);
+        final List<Reservation> allReservationsList = dbHelper.getAllReservations();
+        ReservationBaseAdapter reservationBaseAdapter = new ReservationBaseAdapter(allReservationsList, this);
+        mainListView.setAdapter(reservationBaseAdapter);
 
 
         total_due_textview.setText(getString(R.string.total_due_textview_text, dbHelper.getTotalAmountDue().toString()));
@@ -74,38 +87,4 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-
-//    // Create an ArrayAdapter from List
-//    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
-//            (this, android.R.layout.simple_list_item_1, allReservationsList){
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent){
-//            // Get the Item from ListView
-//            View view = super.getView(position, convertView, parent);
-//
-//            // Initialize a TextView for ListView each Item
-//            TextView tv = (TextView) view.findViewById(android.R.id.text1);
-//
-//
-//
-//            // Set the text color of TextView (ListView Item)
-//            tv.setTextColor(Color.WHITE);
-//            // Set the text size
-//            tv.setTextSize(18);
-//            // Set view padding
-//            tv.setPadding(0,30,0,30);
-//
-////                Typeface font = Typeface.createFromFile("/res/font/poiret_font.ttf");
-////                tv.setTypeface(font);
-//
-//
-//
-//
-//            // Generate ListView Item using TextView
-//            return view;
-//        }
-//    };
-//
-//// DataBind ListView with items from ArrayAdapter
-//        listview.setAdapter(arrayAdapter);
 

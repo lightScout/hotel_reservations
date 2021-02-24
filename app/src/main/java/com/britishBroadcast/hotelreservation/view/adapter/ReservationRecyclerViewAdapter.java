@@ -1,4 +1,4 @@
-package com.britishBroadcast.hotelreservation.model.data;
+package com.britishBroadcast.hotelreservation.view.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,15 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.britishBroadcast.hotelreservation.R;
+import com.britishBroadcast.hotelreservation.model.data.Reservation;
 
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class ReservationRecyclerViewAdapter extends RecyclerView.Adapter<ReservationRecyclerViewAdapter.MyViewHolder> {
 
     ArrayList<Reservation> allReservationsList;
     Context context;
 
-    public MyAdapter(Context ct, ArrayList<Reservation> list) {
+    public ReservationRecyclerViewAdapter(Context ct, ArrayList<Reservation> list) {
 context = ct;
 allReservationsList = list;
     }

@@ -25,6 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String RESERVATION_CHECKING_COLUMN = "reservation_checking";
     public static final String RESERVATION_CHECKOUT_COLUMN = "reservation_checkout";
     public static final String RESERVATION_PRICE_COLUMN = "reservation_price";
+    public static final String RESERVATION_ROOM_IMAGE_COLUMN = "reservation_room_image";
 
 
     // Constructor
@@ -42,7 +43,9 @@ public class DBHelper extends SQLiteOpenHelper {
                 RESERVATION_NAME_COLUMN + " TEXT, "+
                 RESERVATION_CHECKING_COLUMN + " TEXT, "+
                 RESERVATION_CHECKOUT_COLUMN + " TEXT, "+
-                RESERVATION_PRICE_COLUMN + " FLOAT);";
+                RESERVATION_PRICE_COLUMN + " FLOAT, " +
+                RESERVATION_ROOM_IMAGE_COLUMN + " TEXT);";
+                ;
 
         sqLiteDatabase.execSQL(createCommand); // Table created in the database!
 
@@ -66,6 +69,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(RESERVATION_CHECKING_COLUMN, reservation.getCheckingDate());
         values.put(RESERVATION_CHECKOUT_COLUMN, reservation.getCheckoutData());
         values.put(RESERVATION_PRICE_COLUMN, reservation.getPrice());
+        values.put(RESERVATION_ROOM_IMAGE_COLUMN, reservation.getImage());
 
 
         getWritableDatabase().insert(TABLE_NAME, null, values);
@@ -84,8 +88,9 @@ public class DBHelper extends SQLiteOpenHelper {
             String checking = allReservations.getString(allReservations.getColumnIndex(RESERVATION_CHECKING_COLUMN));
             String checkout =  allReservations.getString(allReservations.getColumnIndex(RESERVATION_CHECKOUT_COLUMN));
             Double price =  allReservations.getDouble(allReservations.getColumnIndex(RESERVATION_PRICE_COLUMN));
+            String room = allReservations.getString(allReservations.getColumnIndex(RESERVATION_ROOM_IMAGE_COLUMN));
 
-            Reservation reservation = new Reservation(reservationID,name, checking, checkout, price);
+            Reservation reservation = new Reservation(reservationID,name, checking, checkout, price, room);
             reservationsArrayList.add(reservation);
 
         }

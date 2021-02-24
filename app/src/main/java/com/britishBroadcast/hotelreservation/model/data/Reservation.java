@@ -6,21 +6,28 @@ public class Reservation {
     private String checkingDate;
     private String checkoutData;
     private Double price;
+    private String image;
 
-    public Reservation(int id, String reservationName, String checkInDate, String checkOutData, Double price) {
+
+    public Reservation(int id, String reservationName, String checkInDate, String checkOutData, Double price, String image) {
         this.id = id;
         this.reservationName = reservationName;
         this.checkingDate = checkInDate;
         this.checkoutData = checkOutData;
         this.price = price;
+        this.image = image;
     }
 
-    public Reservation(String reservationName, String checkingDate, String checkoutData, Double price) {
+
+    public Reservation(String reservationName, String checkingDate, String checkoutData, Double price, String image) {
         this.reservationName = reservationName;
         this.checkingDate = checkingDate;
         this.checkoutData = checkoutData;
         this.price = price;
+        this.image = image;
     }
+
+    public String getImage(){return image;}
 
     public int getId() {
         return id;

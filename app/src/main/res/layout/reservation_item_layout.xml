@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/reservation_imageview"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp"
+        tools:src="@tools:sample/backgrounds/scenic"
+
+        />
+
+    <TextView
+        style="@style/MainTextViewStyle"
+        android:id="@+id/reservation_name_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/reservation_imageview"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Reservation Name" />
+
+    <TextView
+        style="@style/MainTextViewStyle"
+        android:id="@+id/reservation_checking_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/reservation_imageview"
+        app:layout_constraintTop_toBottomOf="@id/reservation_name_textview"
+        tools:text="Checking" />
+
+    <TextView
+        style="@style/MainTextViewStyle"
+        android:id="@+id/reservation_checkout_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/reservation_price_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/reservation_imageview"
+        app:layout_constraintTop_toBottomOf="@id/reservation_checking_textview"
+        tools:text="Checkout" />
+
+    <TextView
+        style="@style/MainTextViewStyle"
+        android:id="@+id/reservation_price_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Price"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reservation_imageview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

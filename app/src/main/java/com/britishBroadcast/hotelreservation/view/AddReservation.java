@@ -1,18 +1,17 @@
-package com.britishBroadcast.hotelreservation;
+package com.britishBroadcast.hotelreservation.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.britishBroadcast.hotelreservation.R;
 import com.britishBroadcast.hotelreservation.model.DBHelper;
 import com.britishBroadcast.hotelreservation.model.data.Reservation;
-import com.britishBroadcast.hotelreservation.view.MainActivity;
 
 import java.util.Calendar;
 
@@ -98,6 +97,7 @@ public class AddReservation extends AppCompatActivity {
         String reservationChecking = checking_edittext.getText().toString().trim();
         String reservationCheckout = checkout_edittext.getText().toString().trim();
         Double reservationPrice;
+//        String reservationRoomImage = "https://www.gannett-cdn.com/presto/2020/05/18/USAT/9ae54ef7-217d-4877-a614-4760325f9a9b-Park-Hyatt-New-York-Manhattan-Sky-Suite-Master-Bedroom.jpg?crop=1199,675,x0,y59&width=660&height=372&format=pjpg&auto=webp";
 
 
         if(reservationName.isEmpty() || reservationChecking.isEmpty() || reservationCheckout.isEmpty()) {
@@ -105,7 +105,7 @@ public class AddReservation extends AppCompatActivity {
         }else{
             if(!price_edittext.getText().toString().isEmpty()){
                 reservationPrice = Double.parseDouble(price_edittext.getText().toString().trim());
-                final Reservation reservation = new Reservation(reservationName,reservationChecking,reservationCheckout,reservationPrice);
+                final Reservation reservation = new Reservation(reservationName,reservationChecking,reservationCheckout,reservationPrice, "https://www.gannett-cdn.com/presto/2020/05/18/USAT/9ae54ef7-217d-4877-a614-4760325f9a9b-Park-Hyatt-New-York-Manhattan-Sky-Suite-Master-Bedroom.jpg?crop=1199,675,x0,y59&width=660&height=372&format=pjpg&auto=webp");
 
                 dbHelper.insertNewReservation(reservation);
                 finish();
